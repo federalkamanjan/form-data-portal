@@ -1,0 +1,7 @@
+streamlit>=1.38
+pandas>=2.2
+google-api-python-client>=2.140
+google-auth>=2.34
+google-auth-oauthlib>=1.2
+phonenumbers>=8.13
+pytest>=8.0
