@@ -1,0 +1,286 @@
+{
+  "settings_version": 1,
+  "profile_name": "School registrations",
+  "fields": [
+    {
+      "key": "full_name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true,
+      "keywords": [
+        "name",
+        "full name",
+        "student name",
+        "your name",
+        "participant name"
+      ],
+      "cleaning": [
+        "trim",
+        "collapse_spaces",
+        "strip_invisible",
+        "placeholders_to_empty",
+        "strip_digits_symbols",
+        "title_case",
+        "flag_short_name",
+        "flag_random_name"
+      ]
+    },
+    {
+      "key": "whatsapp_contact",
+      "label": "WhatsApp Contact",
+      "type": "phone",
+      "required": true,
+      "keywords": [
+        "whatsapp",
+        "contact",
+        "phone",
+        "mobile",
+        "contact no",
+        "cell"
+      ],
+      "cleaning": [
+        "trim",
+        "strip_invisible",
+        "placeholders_to_empty",
+        "normalise_phone_e164"
+      ]
+    },
+    {
+      "key": "city",
+      "label": "City",
+      "type": "text",
+      "required": true,
+      "keywords": [
+        "city",
+        "town",
+        "location"
+      ],
+      "cleaning": [
+        "trim",
+        "collapse_spaces",
+        "strip_invisible",
+        "placeholders_to_empty",
+        "title_case",
+        "city_aliases"
+      ]
+    },
+    {
+      "key": "school_name",
+      "label": "School Name",
+      "type": "text",
+      "required": true,
+      "keywords": [
+        "school",
+        "institution",
+        "school name",
+        "college"
+      ],
+      "cleaning": [
+        "trim",
+        "collapse_spaces",
+        "strip_invisible",
+        "placeholders_to_empty",
+        "normalise_school",
+        "expand_school_abbreviations"
+      ]
+    },
+    {
+      "key": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "keywords": [
+        "email",
+        "e-mail",
+        "email address",
+        "mail"
+      ],
+      "cleaning": [
+        "trim",
+        "strip_invisible",
+        "placeholders_to_empty",
+        "tidy_email",
+        "lowercase",
+        "validate_email",
+        "flag_domain_typos"
+      ]
+    }
+  ],
+  "mapping": {
+    "auto_threshold": 0.85,
+    "suggest_threshold": 0.6
+  },
+  "system_columns": [
+    "source_label",
+    "fetched_at",
+    "record_status"
+  ],
+  "cleaning": {
+    "placeholders": [
+      "n/a",
+      "na",
+      "-",
+      "none",
+      "null",
+      "nil"
+    ],
+    "default_country_code": "PK",
+    "flag_landlines": false,
+    "city_aliases": {
+      "khi": "Karachi",
+      "lhr": "Lahore",
+      "isb": "Islamabad",
+      "rwp": "Rawalpindi",
+      "pindi": "Rawalpindi",
+      "fsd": "Faisalabad"
+    },
+    "school_abbreviations": {
+      "govt": "Government",
+      "gov": "Government",
+      "gvt": "Government",
+      "sch": "School",
+      "scl": "School",
+      "pvt": "Private",
+      "hs": "High School"
+    },
+    "use_phonenumbers_check": true,
+    "countries": {
+      "PK": {
+        "calling_code": "92",
+        "national_lengths": [
+          9,
+          10
+        ],
+        "mobile_pattern": "^3\\d{9}$"
+      },
+      "IN": {
+        "calling_code": "91",
+        "national_lengths": [
+          10
+        ],
+        "mobile_pattern": "^[6-9]\\d{9}$"
+      },
+      "AE": {
+        "calling_code": "971",
+        "national_lengths": [
+          8,
+          9
+        ],
+        "mobile_pattern": "^5\\d{8}$"
+      },
+      "SA": {
+        "calling_code": "966",
+        "national_lengths": [
+          8,
+          9
+        ],
+        "mobile_pattern": "^5\\d{8}$"
+      },
+      "GB": {
+        "calling_code": "44",
+        "national_lengths": [
+          9,
+          10
+        ],
+        "mobile_pattern": "^7\\d{9}$"
+      },
+      "US": {
+        "calling_code": "1",
+        "national_lengths": [
+          10
+        ],
+        "mobile_pattern": null
+      }
+    },
+    "school_acronyms": [
+      "APS",
+      "CMH",
+      "DHA",
+      "FG",
+      "IMCB",
+      "KIPS",
+      "LGS",
+      "PAF",
+      "TCF"
+    ],
+    "school_near_duplicate_threshold": 0.9,
+    "email_popular_domains": [
+      "gmail.com",
+      "yahoo.com",
+      "hotmail.com",
+      "outlook.com",
+      "icloud.com",
+      "live.com"
+    ],
+    "email_known_domains": [
+      "mail.com",
+      "msn.com",
+      "me.com",
+      "aol.com",
+      "proton.me",
+      "protonmail.com",
+      "yandex.com",
+      "zoho.com",
+      "gmx.com",
+      "ymail.com",
+      "rocketmail.com",
+      "googlemail.com"
+    ],
+    "row_rules": {
+      "reject_if_all_empty": [
+        "email",
+        "whatsapp_contact"
+      ]
+    },
+    "email_domain_typos": {
+      "gmial.com": "gmail.com",
+      "gmai.com": "gmail.com",
+      "gamil.com": "gmail.com",
+      "gmail.con": "gmail.com",
+      "gmail.cm": "gmail.com",
+      "gmail.co": "gmail.com",
+      "gmaill.com": "gmail.com",
+      "gnail.com": "gmail.com",
+      "gmal.com": "gmail.com",
+      "gmail.comm": "gmail.com",
+      "yahooo.com": "yahoo.com",
+      "yaho.com": "yahoo.com",
+      "yahoo.con": "yahoo.com",
+      "yahho.com": "yahoo.com",
+      "hotmial.com": "hotmail.com",
+      "hotmal.com": "hotmail.com",
+      "hotmail.con": "hotmail.com",
+      "outlok.com": "outlook.com",
+      "outlook.con": "outlook.com"
+    },
+    "autofix_email_domain_typos": false,
+    "reject_flags": [],
+    "school_similarity_threshold": 0.9
+  },
+  "dedupe": {
+    "enabled": false,
+    "key": [
+      "email",
+      "whatsapp_contact"
+    ],
+    "keep": "newest"
+  },
+  "output": {
+    "master_file_name": "master.csv",
+    "include_system_columns": true,
+    "use_labels_as_headers": true,
+    "backups_to_keep": 5,
+    "system_column_labels": {
+      "source_label": "Source",
+      "fetched_at": "Fetched At",
+      "record_status": "Record Status"
+    }
+  },
+  "workflow": {
+    "preview_enabled": true,
+    "require_confirmation": true
+  },
+  "run": {
+    "max_parallel_links": 4
+  }
+}
